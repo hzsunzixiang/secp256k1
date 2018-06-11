@@ -1,6 +1,15 @@
 libsecp256k1
 ============
 
+
+
+# ericksun 
+https://github.com/libbitcoin/libbitcoin/issues/809
+
+When building libsecp you must use the --enable-module-recovery option. The libbitcoin install.sh does this internally. See the libbitcoin readme.
+
+A minimal libbitcoin build requires boost and libsecp256k1. The [libbitcoin/secp256k1](https://github.com/libbitcoin/secp256k1) repository is forked from [bitcoin-core/secp256k1](https://github.com/bitcoin-core/secp256k1) in order to control for changes and to incorporate the necessary Visual Studio build. The original repository can be used directly but recent changes to the public interface may cause build breaks. The `--enable-module-recovery` switch is required.
+
 [![Build Status](https://travis-ci.org/bitcoin-core/secp256k1.svg?branch=master)](https://travis-ci.org/bitcoin-core/secp256k1)
 
 Optimized C library for EC operations on curve secp256k1.
