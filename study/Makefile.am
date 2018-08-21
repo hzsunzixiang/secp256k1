@@ -1,10 +1,11 @@
 # Defines which program executables will be produced.
-bin_PROGRAMS = test  sign sign1
+#bin_PROGRAMS = test  sign sign1
+bin_PROGRAMS = test  sign1 sign2
 
 # Defines which source files are used to produce the specificed
 # executable.
 test_SOURCES = test.c 
-sign_SOURCES = sign.c 
+sign_SOURCES = sign1.c 
 
 # Defines flags for the C preprocessor *specific to ``hw``*.
 # test_CPPLFAGS = 
