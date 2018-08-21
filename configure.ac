@@ -8,6 +8,7 @@ AH_TOP([#define LIBSECP256K1_CONFIG_H])
 AH_BOTTOM([#endif /*LIBSECP256K1_CONFIG_H*/])
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 LT_INIT
+LT_LANG([C++])
 
 dnl make the compilation flags quiet unless V=1 is used
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
@@ -23,6 +24,7 @@ if test "x$CFLAGS" = "x"; then
   CFLAGS="-g"
 fi
 
+
 AM_PROG_CC_C_O
 
 AC_PROG_CC_C99
@@ -30,6 +32,11 @@ if test x"$ac_cv_prog_cc_c99" = x"no"; then
   AC_MSG_ERROR([c99 compiler support required])
 fi
 AM_PROG_AS
+
+#ericksun
+# Check if you have a C++ compiler
+AC_PROG_CXX
+AC_PROG_CXX_C_O
 
 case $host_os in
   *darwin*)
@@ -64,6 +71,8 @@ case $host_os in
 esac
 
 CFLAGS="$CFLAGS -W"
+# ericksun
+CXXFLAGS="$CXXFLAGS -W"
 
 warn_CFLAGS="-std=c99 -pedantic -Wall -Wextra -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes -Wno-unused-function -Wno-long-long -Wno-overlength-strings"
 saved_CFLAGS="$CFLAGS"
@@ -469,7 +478,7 @@ else
 fi
 
 AC_CONFIG_HEADERS([src/libsecp256k1-config.h])
-AC_CONFIG_FILES([Makefile study/Makefile libsecp256k1.pc])
+AC_CONFIG_FILES([Makefile study/Makefile study_cpp/Makefile libsecp256k1.pc])
 
 AC_SUBST(JNI_INCLUDES)
 AC_SUBST(SECP_INCLUDES)
