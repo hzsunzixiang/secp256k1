@@ -1,5 +1,5 @@
 # Defines which program executables will be produced.
-bin_PROGRAMS = test  sign
+bin_PROGRAMS = test  sign sign1
 
 # Defines which source files are used to produce the specificed
 # executable.
@@ -22,8 +22,8 @@ AM_CPPFLAGS = -I$(srcdir) -I$(top_srcdir) -I$(top_srcdir)/include
 #
 # In this case, we want to statically link the libraries in
 # ``test_LDADD`.
-AM_LDFLAGS = #-static
+AM_LDFLAGS =  $(top_srcdir)/libsecp256k1.la #-static
 
 # Libraries the ``hw`` binary will be linked to.
-test_LDADD = $(top_srcdir)/libsecp256k1.la
-sign_LDADD = $(top_srcdir)/libsecp256k1.la
+test_LDADD = 
+sign_LDADD = 
