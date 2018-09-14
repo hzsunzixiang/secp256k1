@@ -1,9 +1,10 @@
 # Defines which program executables will be produced.
-bin_PROGRAMS = test 
+bin_PROGRAMS = test  sign
 
 # Defines which source files are used to produce the specificed
 # executable.
-test_SOURCES = test.c
+test_SOURCES = test.c 
+sign_SOURCES = test.c 
 
 # Defines flags for the C preprocessor *specific to ``hw``*.
 # test_CPPLFAGS = 
@@ -25,3 +26,4 @@ AM_LDFLAGS = #-static
 
 # Libraries the ``hw`` binary will be linked to.
 test_LDADD = $(top_srcdir)/libsecp256k1.la
+sign_LDADD = $(top_srcdir)/libsecp256k1.la
