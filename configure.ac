@@ -1,4 +1,4 @@
-AC_PREREQ([2.60])
+AC_PREREQ([2.69])
 AC_INIT([libsecp256k1],[0.1])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
@@ -469,7 +469,8 @@ else
 fi
 
 AC_CONFIG_HEADERS([src/libsecp256k1-config.h])
-AC_CONFIG_FILES([Makefile libsecp256k1.pc])
+AC_CONFIG_FILES([Makefile study/Makefile libsecp256k1.pc])
+
 AC_SUBST(JNI_INCLUDES)
 AC_SUBST(SECP_INCLUDES)
 AC_SUBST(SECP_LIBS)
