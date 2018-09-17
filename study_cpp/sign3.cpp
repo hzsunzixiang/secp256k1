@@ -60,7 +60,7 @@ void test_ecdsa_end_to_end(void) {
     // 压缩公钥
     secp256k1_ec_pubkey_serialize(ctx, pubkeyc, &pubkeyclen, &pubkey, SECP256K1_EC_COMPRESSED);
 
-    string pubcom = HexStr(pubkeyc, pubkeyc+pubkeyclen-1);
+    string pubcom = HexStr(pubkeyc, pubkeyc+pubkeyclen);
 	cout << pubcom << endl;
 
 
@@ -72,7 +72,7 @@ void test_ecdsa_end_to_end(void) {
     // 非压缩公钥
     secp256k1_ec_pubkey_serialize(ctx, pubkeyc1, &pubkeyclen1, &pubkey, SECP256K1_EC_UNCOMPRESSED);
 
-    string pubuncom = HexStr(pubkeyc1, pubkeyc1+pubkeyclen1-1);
+    string pubuncom = HexStr(pubkeyc1, pubkeyc1+pubkeyclen1);
 	cout << pubuncom << endl;
 
     memset(&pubkey, 0, sizeof(pubkey));
@@ -81,6 +81,9 @@ void test_ecdsa_end_to_end(void) {
 	// 对消息签名
     /* Sign. */
     secp256k1_ecdsa_sign(ctx, &signature, message, privkey, NULL, NULL);
+
+    string signature_data = HexStr(signature.data, signature.data+63);
+	cout << signature_data << endl;
 
 
     // 这里才是编码之后的签名
