@@ -85,7 +85,7 @@ void test_ecdsa_end_to_end(void) {
     secp256k1_ecdsa_sign(ctx, &signature, message, privkey, NULL, NULL);
 
     string signature_data = HexStr(signature.data, signature.data+64);
-	cout << signature_data << endl;
+	cout << "signature_data: " <<  signature_data << endl;
 
 
     // 这里才是编码之后的签名
